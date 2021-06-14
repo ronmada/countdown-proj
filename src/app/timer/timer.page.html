@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>timer</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="">
+    <ng-container *ngIf="timer">
+      <ion-row class="fixheight">
+        <ion-col
+          class="ion-text-center"
+          [ngClass]="timer.yrs===0  ? 'red-class' : 'white-class'"
+        >
+          <ng-container *ngIf="timer.yrs<10">0</ng-container>{{timer.yrs}} yrs
+        </ion-col>
+      </ion-row>
+      <ion-row class="fixheight">
+        <ion-col
+          class="ion-text-center"
+          [ngClass]="(timer.day===0  && timer.yrs ===0) ? 'red-class' : 'white-class'"
+        >
+          <ng-container *ngIf="timer.day < 10">0</ng-container>{{timer.day}} day
+        </ion-col>
+      </ion-row>
+      <ion-row class="fixheight">
+        <ion-col
+          class="ion-text-center"
+          [ngClass]="(timer.hrs===0  && timer.day ===0) ? 'red-class' : 'white-class'"
+        >
+          <ng-container *ngIf="timer.hrs<10">0</ng-container>{{timer.hrs}} hrs
+        </ion-col>
+      </ion-row>
+      <ion-row class="fixheight">
+        <ion-col
+          class="ion-text-center"
+          [ngClass]="(timer.min===0  && timer.hrs ===0) ? 'red-class' : 'white-class'"
+        >
+          <ng-container *ngIf="timer.min< 10">0</ng-container>{{timer.min}} min
+        </ion-col>
+      </ion-row>
+      <ion-row class="fixheight">
+        <ion-col
+          class="ion-text-center"
+          [ngClass]="(timer.sec===0  && timer.min ===0) ? 'red-class' : 'white-class'"
+        >
+          <ng-container *ngIf="timer.sec < 10">0</ng-container>{{timer.sec}} sec
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col  class="ion-text-center">
+          <ion-button color="danger" (click)="btnClick()">Reset</ion-button>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-grid>
+</ion-content>
